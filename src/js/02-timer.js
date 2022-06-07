@@ -51,6 +51,7 @@ const timer = {
         this.timeInterval = setInterval(() => {
             const currentTime = Date.now();
             const deltaTime = selectedTime - currentTime;
+            
 
             if (deltaTime < 0) {
                 clearInterval(this.timeInterval);
@@ -77,16 +78,16 @@ function removeDisabled(e) {
     e.removeAttribute('disabled');
 };
 
-function addZero(value) {
-    return String(value).padStart(2, '0');
-};
-
 function onConvertTime({ days, hours, minutes, seconds }) {
     refs.daysCounter.textContent = `${days}`;
     refs.hoursCounter.textContent = `${hours}`;
     refs.minutesCounter.textContent = `${minutes}`;
     refs.secondsCounter.textContent = `${seconds}`;
 }
+
+function addZero(value) {
+    return String(value).padStart(2, '0');
+};
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
